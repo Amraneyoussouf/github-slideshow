@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pédagogie avancée</title>
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+  <header id="hero" class="fade-in">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <img src="https://via.placeholder.com/150" alt="Photo du professeur">
+      <h1>Pédagogie</h1>
+    </div>
+  </header>
+
+  <nav>
+    <a href="portfolio.html">Accueil</a>
+    <a href="pedagogie.html">Pédagogie</a>
+    <a href="recherche.html">Recherche</a>
+    <a href="evenements.html">Événements</a>
+    <a href="services.html">Services</a>
+  </nav>
+
+  <section id="pedagogie" class="fade-in">
+    <h2>Pédagogie avancée</h2>
+    <div id="course-filters">
+      <label for="level-filter">Niveau:</label>
+      <select id="level-filter">
+        <option value="all">Tous</option>
+        <option value="L1">L1</option>
+        <option value="L2">L2</option>
+        <option value="M1">M1</option>
+      </select>
+    </div>
+    <ul id="course-list">
+      <li data-level="L1">Introduction à l'IA
+        <button class="preview" data-src="https://example.com/intro.pdf">PDF</button>
+        <button class="download" data-src="https://example.com/intro.pdf">Télécharger (<span class="count">0</span>)</button>
+      </li>
+      <li data-level="M1">Deep Learning avancé
+        <button class="preview" data-src="https://example.com/dl.pdf">PDF</button>
+        <button class="download" data-src="https://example.com/dl.pdf">Télécharger (<span class="count">0</span>)</button>
+      </li>
+    </ul>
+    <div id="webinar">
+      <video controls width="400">
+        <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div id="quiz">
+      <p>Quelle année a-t-on lancé le laboratoire X ?</p>
+      <button class="quiz-option" data-answer="false">2019</button>
+      <button class="quiz-option" data-answer="true">2020</button>
+      <span id="quiz-result"></span>
+    </div>
+    <progress id="progression" value="0" max="2"></progress>
+  </section>
+
+  <script>
+  particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json');
+  document.getElementById('level-filter').addEventListener('change', function(e) {
+    var level = e.target.value;
+    document.querySelectorAll('#course-list li').forEach(function(li) {
+      li.style.display = level === 'all' || li.dataset.level === level ? '' : 'none';
+    });
+  });
+  document.querySelectorAll('.preview').forEach(function(btn) {
+    btn.addEventListener('click', function() { window.open(btn.dataset.src, '_blank'); });
+  });
+  document.querySelectorAll('.download').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var countSpan = btn.querySelector('.count');
+      countSpan.textContent = parseInt(countSpan.textContent) + 1;
+    });
+  });
+  document.querySelectorAll('.quiz-option').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.getElementById('quiz-result').textContent = btn.dataset.answer === 'true' ? 'Bonne réponse!' : 'Incorrect';
+      document.getElementById('progression').value += 1;
+    });
+  });
+  </script>
+  <script src="assets/js/portfolio.js"></script>
+</body>
+</html>

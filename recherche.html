@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recherche et publications</title>
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="assets/js/portfolio.js"></script>
+<body>
+  <header id="hero" class="fade-in">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <img src="https://via.placeholder.com/150" alt="Photo du professeur">
+      <h1>Recherche</h1>
+    </div>
+  </header>
+
+  <nav>
+    <a href="portfolio.html">Accueil</a>
+    <a href="pedagogie.html">Pédagogie</a>
+    <a href="recherche.html">Recherche</a>
+    <a href="evenements.html">Événements</a>
+    <a href="services.html">Services</a>
+  </nav>
+
+  <section id="research" class="fade-in">
+    <h2>Recherche et publications</h2>
+    <input type="text" id="pub-search" placeholder="Recherche">
+    <ul id="pub-list">
+      <li>2024 &ndash; Article sur les graphes neuraux</li>
+      <li>2023 &ndash; Étude sur les données massives</li>
+      <li>2022 &ndash; Conférence internationale en IA</li>
+    </ul>
+    <canvas id="collab-chart" width="400" height="200"></canvas>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<script src="assets/js/portfolio.js"></script>
+  <script>
+  particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json');
+  var pubSearch = document.getElementById('pub-search');
+  pubSearch.addEventListener('input', function() {
+    var q = pubSearch.value.toLowerCase();
+    document.querySelectorAll('#pub-list li').forEach(function(li) {
+      li.style.display = li.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+  new Chart(document.getElementById('collab-chart'), {
+    type: 'pie',
+    data: { labels: ['France', 'USA', 'Japon'], datasets: [{ data: [5,3,2], backgroundColor:['#f88','#8f8','#88f'] }] },
+    options: { responsive: true, maintainAspectRatio: false }
+  });
+  </script>
+<script src="assets/js/portfolio.js"></script>
+</body>
+</html>

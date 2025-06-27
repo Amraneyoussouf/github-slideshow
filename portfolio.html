@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Enseignant-Chercheur</title>
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+</head>
+<body>
+  <header id="hero" class="fade-in">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <img src="https://via.placeholder.com/150" alt="Photo du professeur">
+      <h1>Pr. Exemple</h1>
+      <p>Enseignant-Chercheur en Informatique</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="portfolio.html">Accueil</a>
+    <a href="pedagogie.html">Pédagogie</a>
+    <a href="recherche.html">Recherche</a>
+    <a href="evenements.html">Événements</a>
+    <a href="services.html">Services</a>
+  </nav>
+
+  <section id="stats" class="fade-in">
+    <h2>Statistiques</h2>
+    <canvas id="statsChart" width="400" height="200"></canvas>
+  </section>
+
+  <section id="timeline-section" class="fade-in">
+    <h2>Parcours</h2>
+    <ul id="timeline">
+      <li>2024 &ndash; Publication majeure sur l'IA</li>
+      <li>2022 &ndash; Prix de la meilleure thèse encadrée</li>
+      <li>2020 &ndash; Lancement du laboratoire X</li>
+    </ul>
+  </section>
+
+  <section id="testimonials-section" class="fade-in">
+    <h2>Témoignages</h2>
+    <div id="testimonials" class="slider">
+      <blockquote class="slide">&ldquo;Un mentor exceptionnel !&rdquo; &mdash; Étudiant A</blockquote>
+      <blockquote class="slide">&ldquo;Des cours passionnants.&rdquo; &mdash; Étudiante B</blockquote>
+    </div>
+  </section>
+
+  <section id="countdown-section" class="fade-in">
+    <h2>Prochain événement</h2>
+    <div id="countdown" data-date="2025-12-12T09:00:00Z"></div>
+  </section>
+
+  <section id="map-section" class="fade-in">
+    <h2>Collaborations internationales</h2>
+    <div id="map"></div>
+  </section>
+
+
+  <script>
+  particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json');
+  // Simple Chart.js example
+  new Chart(document.getElementById('statsChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Publications', 'Citations', 'h-index', 'Étudiants'],
+      datasets: [{
+        label: 'Statistiques',
+        data: [50, 1200, 15, 30],
+        backgroundColor: 'rgba(54, 162, 235, 0.5)'
+      }]
+    },
+    options: { responsive: true, maintainAspectRatio: false }
+  });
+
+  // Leaflet map
+  var map = L.map('map').setView([48.8584, 2.2945], 2);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+  L.marker([48.8584, 2.2945]).addTo(map).bindPopup('Paris');
+
+  </script>
+  <script src="assets/js/portfolio.js"></script>
+</body>
+</html>

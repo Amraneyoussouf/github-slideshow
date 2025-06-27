@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Événements</title>
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+  <header id="hero" class="fade-in">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <img src="https://via.placeholder.com/150" alt="Photo du professeur">
+      <h1>Événements</h1>
+    </div>
+  </header>
+
+  <nav>
+    <a href="portfolio.html">Accueil</a>
+    <a href="pedagogie.html">Pédagogie</a>
+    <a href="recherche.html">Recherche</a>
+    <a href="evenements.html">Événements</a>
+    <a href="services.html">Services</a>
+  </nav>
+
+  <section id="events" class="fade-in">
+    <h2>Événements</h2>
+    <table id="calendar">
+      <tr><th>12/12/2024</th><td>Workshop Deep Learning <button class="reserve">Réserver</button></td></tr>
+    </table>
+    <p id="reserve-count">Places réservées : <span id="reserve-total">0</span></p>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+  particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json');
+  </script>
+<script src="assets/js/portfolio.js"></script>
+</body>
+</html>

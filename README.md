@@ -11,3 +11,19 @@ I'm the GitHub Learning Lab bot and I'm here to help guide you in your journey t
 I'll meet you over there, can't wait to get started!
 
 This course is using the :sparkles: open source project [reveal.js](https://github.com/hakimel/reveal.js/). In some cases we’ve made changes to the history so it would behave during class, so head to the original project repo to learn more about the cool people behind this project.
+
+## Portfolio exemple
+
+Un nouvel exemple de page de portfolio universitaire est disponible dans `portfolio.html`. Elle présente un héros animé, des statistiques interactives, une chronologie et une carte Leaflet illustrant les collaborations internationales.
+
+Les sections avancées sont désormais séparées en plusieurs pages :
+
+- `pedagogie.html` pour les outils pédagogiques interactifs
+- `recherche.html` pour la base de publications et les métriques
+- `evenements.html` pour le calendrier dynamique
+- `services.html` pour la prise de rendez-vous et la facturation
+
+La page principale contient un menu permettant d'accéder à chacune de ces parties.
+
+Des animations ont été ajoutées via `animate.css` et un script `assets/js/portfolio.js`.
+La page d'accueil comporte désormais un slider pour les témoignages et un widget de compte à rebours vers le prochain événement.
